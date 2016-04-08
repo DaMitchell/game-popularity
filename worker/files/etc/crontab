@@ -1,0 +1,8 @@
+
+TGP_DB_PASSWORD=changeme
+TGP_DB_USERNAME=changeme
+TGP_DB_NAME=changeme
+TGP_DB_HOST=changeme
+TGP_DB_PORT=changeme
+
+*/15 * * * * root /usr/tgp/bin/cron.sh >> /var/log/worker.log 2>&1

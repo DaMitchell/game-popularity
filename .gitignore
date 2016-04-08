@@ -1,0 +1,10 @@
+.idea/
+*.iml
+*.iws
+
+.gradle/
+build/
+
+.vertx
+
+env.list
