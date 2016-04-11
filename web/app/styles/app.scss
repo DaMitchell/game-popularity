@@ -1,0 +1,19 @@
+//helpers
+@import "helpers/variables";
+@import "helpers/mixins";
+
+//normalize
+//@import "../../bower_components/normalize-css/normalize";
+
+//base
+@import "base/scaffolding";
+@import "base/font";
+@import "base/links";
+
+//components
+@import "components/nano-scroller";
+
+//layouts
+@import "layouts/application";
+@import "layouts/games-list";
+

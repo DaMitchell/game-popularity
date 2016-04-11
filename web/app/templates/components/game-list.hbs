@@ -1,0 +1,13 @@
+<div class="game-list nano-content">
+  {{#if loading}}
+      <div class="game-list-loading"></div>
+  {{else}}
+    {{#each games as |game|}}
+        <div class="game" {{action "selectGame" game}}>
+            <img src={{game.box.medium}} alt={{game.name}}/>
+        </div>
+    {{else}}
+        No games to select
+    {{/each}}
+  {{/if}}
+</div>

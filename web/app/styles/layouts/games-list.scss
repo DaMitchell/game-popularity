@@ -1,0 +1,42 @@
+#games {
+  width: 299px;
+
+  .game-search {
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+
+    input {
+      border: 1px solid #CECECE;
+      padding: 5px;
+      width: 100%;
+      color: #545454;
+    }
+  }
+
+  $loading: url("../loader.gif") no-repeat center;
+
+  .game-list-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $loading;
+  }
+
+  .game-list {
+    outline: none;
+    padding-bottom: 5px;
+    .game {
+      margin: 5px 0 0 5px;
+      float: left;
+      cursor: pointer;
+
+      img {
+        height: 190px;
+        width: 136px;
+        background: $loading;
+      }
+    }
+  }
+}

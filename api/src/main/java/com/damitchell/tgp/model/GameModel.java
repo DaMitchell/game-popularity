@@ -34,7 +34,8 @@ public class GameModel
     public static GameModel fromJsonObject(JsonObject jsonObject)
     {
         return new GameModel(jsonObject.getInteger("id"), jsonObject.getString("name"))
-            .addBox("small", jsonObject.getString("box_small"));
+            .addBox("small", jsonObject.getString("box_small"))
+            .addBox("medium", jsonObject.getString("box_medium"));
     }
 
     public int getId()

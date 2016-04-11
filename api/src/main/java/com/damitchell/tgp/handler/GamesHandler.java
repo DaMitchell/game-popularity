@@ -39,11 +39,13 @@ public class GamesHandler implements Handler<RoutingContext>
         Representation rep = factory.newRepresentation(baseUrl + request.uri());
 
         MultiMap params = request.params();
-        Integer limit = params.contains("limit") ? Integer.parseInt(params.get("limit")) : 10;
-        Integer offset = params.contains("offset") ? Integer.parseInt(params.get("offset")) : 0;
+        /*Integer limit = params.contains("limit") ? Integer.parseInt(params.get("limit")) : 10;
+        Integer offset = params.contains("offset") ? Integer.parseInt(params.get("offset")) : 0;*/
 
         Observable<Integer> total = gameService.getTotalGames();
-        Observable<List<GameModel>> games = gameService.getGames(limit, offset);
+        Observable<List<GameModel>> games = params.contains("name") ?
+            gameService.getGamesByName(params.get("name")) :
+            gameService.getTopGames();
 
         Observable.zip(total, games, (integer, entries) -> {
             entries.forEach(game -> rep.withRepresentation("games",
@@ -53,16 +55,16 @@ public class GamesHandler implements Handler<RoutingContext>
 
             String template = baseUrl + context.request().uri() + "?limit=%s&offset=%s";
 
-            rep.withLink("next", String.format(template, limit, (offset + limit)));
+            /*rep.withLink("next", String.format(template, limit, (offset + limit)));
 
             if(offset > 0) {
                 rep.withLink("prev", String.format(template, limit, ((offset - limit) < 0 ? 0 : (offset - limit))));
-            }
+            }*/
 
             return rep;
         }).subscribe(representation -> {
             context.response()
-                .putHeader("content-type", "application/hal+json")
+                .putHeader(HttpHeaders.CONTENT_TYPE.toString(), "application/hal+json")
                 .end(representation.toString(RepresentationFactory.HAL_JSON));
         }, context::fail);
     }

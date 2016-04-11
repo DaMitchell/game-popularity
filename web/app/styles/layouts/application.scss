@@ -1,0 +1,25 @@
+html,
+body {
+
+}
+
+$header-height: 50px;
+
+header {
+  min-height: $header-height;
+
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#right {
+  position: fixed;
+  top: $header-height + 1;
+  right: 0;
+  bottom: 0;
+
+  overflow: hidden;
+
+  background-color: #fff;
+  border-left: 1px solid #eaeaea;
+}

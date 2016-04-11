@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'web',
+    modulePrefix: 'tgp',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
