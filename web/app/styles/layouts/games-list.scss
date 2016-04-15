@@ -1,5 +1,9 @@
 #games {
-  width: 299px;
+  width: 287px;
+
+  @include breakpoint(tablet) {
+    width: $right-column-width;
+  }
 
   .game-search {
     padding: 10px;
@@ -13,15 +17,13 @@
     }
   }
 
-  $loading: url("../loader.gif") no-repeat center;
-
   .game-list-loading {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: $loading;
+    background: $loading-bg;
   }
 
   .game-list {
@@ -35,7 +37,14 @@
       img {
         height: 190px;
         width: 136px;
-        background: $loading;
+        background: $loading-bg;
+      }
+
+      .name {
+        width: 136px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }

@@ -1,0 +1,20 @@
+<div class="chart-header">
+    <div class="game-name">
+        {{game.name}}
+    </div>
+    <div class="chart-buttons">
+      {{#active-button isActive=viewers}}Viewers{{/active-button}}
+      {{#active-button isActive=channels}}Channels{{/active-button}}
+    </div>
+</div>
+<div class="chart-body">
+  {{#if game.isLoading}}
+    <div class="chart-loading"></div>
+  {{else}}
+    {{#if hasStats}}
+      {{line-chart data=stats options=options}}
+    {{else}}
+      <div class="no-stats">Nothing to show</div>
+    {{/if}}
+  {{/if}}
+</div>

@@ -1,0 +1,63 @@
+.game-chart {
+  $line-height: 30px;
+
+  .chart-header {
+    margin-bottom: 10px;
+    line-height: $line-height;
+    position: relative;
+
+    .game-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    .chart-buttons {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      $button-border-width: 1px;
+
+      button {
+        border-width: $button-border-width;
+        line-height: $line-height - ($button-border-width * 2);
+      }
+    }
+  }
+
+  .chart-body {
+    position: relative;
+    height: 200px;
+
+    @include breakpoint(tablet) {
+      height: 250px;
+    }
+
+    @include breakpoint(laptop) {
+      height: 300px;
+    }
+
+    @include breakpoint(desktop) {
+      height: 400px;
+    }
+
+    .chart-loading,
+    .no-stats {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .chart-loading {
+      background: $loading-bg;
+    }
+
+    .no-stats {
+
+    }
+  }
+}

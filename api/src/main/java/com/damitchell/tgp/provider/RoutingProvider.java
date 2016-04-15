@@ -29,7 +29,7 @@ public class RoutingProvider implements Provider<Router>
         Router router = Router.router(vertx);
 
         //TODO replace "tgp.com" with actual address
-        router.get().handler(CorsHandler.create("(http[s]?):\\/\\/(localhost:4200|(.*\\.)?(tgp.com))")
+        router.get().handler(CorsHandler.create("(http[s]?):\\/\\/(localhost:4200|192.168.0.103:4200|(.*\\.)?(tgp.com))")
             .allowedMethod(HttpMethod.GET));
 
         router.get("/games").handler(routes.get("games"));

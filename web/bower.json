@@ -7,6 +7,8 @@
     "ember-qunit-notifications": "0.1.0",
     "underscore": "^1.8.3",
     "normalize-css": "^4.0.0",
-    "nanoscroller": "^0.8.7"
+    "nanoscroller": "^0.8.7",
+    "moment": "^2.12.0",
+    "moment-timezone": "^0.5.3"
   }
 }

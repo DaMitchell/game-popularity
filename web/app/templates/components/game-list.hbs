@@ -5,6 +5,7 @@
     {{#each games as |game|}}
         <div class="game" {{action "selectGame" game}}>
             <img src={{game.box.medium}} alt={{game.name}}/>
+            <div class="name">{{game.name}}</div>
         </div>
     {{else}}
         No games to select

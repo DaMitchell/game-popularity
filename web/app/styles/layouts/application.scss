@@ -1,15 +1,49 @@
-html,
-body {
-
-}
-
 $header-height: 50px;
 
 header {
-  min-height: $header-height;
+  //min-height: $header-height;
 
   background-color: #fff;
   border-bottom: 1px solid #eaeaea;
+  line-height: $header-height;
+
+  .brand {
+    padding: 0 10px;
+  }
+
+  .nav {
+    float: right;
+    list-style: none;
+
+    > li {
+      position: relative;
+      display: block;
+      float: left;
+
+      &.games {
+        @include breakpoint(laptop) {
+          display: none;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 0 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #eaeaea;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+#main {
+  @include breakpoint(laptop) {
+    margin-right: $right-column-width;
+  }
 }
 
 #right {
@@ -22,4 +56,19 @@ header {
 
   background-color: #fff;
   border-left: 1px solid #eaeaea;
+
+  &.open {
+    display: block;
+  }
+
+  &.close {
+    display: none
+  }
+
+  @include breakpoint(laptop) {
+    &.open,
+    &.close {
+      display: block;
+    }
+  }
 }

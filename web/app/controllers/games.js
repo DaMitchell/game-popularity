@@ -2,6 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+    selected: Ember.computed({
+        get() {
+            return this.get('_selected') ? this.get('_selected') : this.get('model.firstObject');
+        },
+        set(key, value) {
+            return this.set('_selected', value);
+        }
+    }),
+
     search: "",
 
     _observeSearch: function() {
@@ -11,7 +20,7 @@ export default Ember.Controller.extend({
 
     actions: {
         selectGame(game) {
-            console.log('game controller', game);
+            this.set('selected', game);
         }
     }
 });

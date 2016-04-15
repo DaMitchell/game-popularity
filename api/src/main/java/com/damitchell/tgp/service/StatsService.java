@@ -7,14 +7,15 @@ import io.vertx.rxjava.ext.jdbc.JDBCClient;
 import rx.Observable;
 
 import java.time.chrono.ChronoLocalDate;
+import java.time.chrono.ChronoZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class StatsService extends AbstractService
 {
-    private static final String SELECT_STATS_GAME = "SELECT date, viewers, channels FROM game_stats WHERE id = ? AND date BETWEEN ? AND ?";
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00");
+    private static final String SELECT_STATS_GAME = "SELECT date, viewers, channels FROM game_stats WHERE id = ? AND date BETWEEN ? AND ? ORDER BY date ASC";
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Inject
     public StatsService(JDBCClient client)
@@ -22,7 +23,7 @@ public class StatsService extends AbstractService
         this.setClient(client);
     }
 
-    public Observable<List<StatModel>> getStatsForGame(Integer id, ChronoLocalDate from, ChronoLocalDate to)
+    public Observable<List<StatModel>> getStatsForGame(Integer id, ChronoZonedDateTime from, ChronoZonedDateTime to)
     {
         JsonArray params = new JsonArray()
             .add(id)

@@ -18,7 +18,8 @@ public class GamesService extends AbstractService
     private static final String SELECT_GAME = "SELECT id, name, box_small, box_medium FROM game WHERE id = ?";
     private static final String SELECT_TOP_GAMES = "SELECT g.id, g.name, g.box_small, box_medium, MAX(gs.viewers) AS viewers " +
         "FROM game AS g JOIN game_stats AS gs ON g.id = gs.id WHERE gs.date > ? GROUP BY g.id ORDER BY viewers DESC LIMIT 20";
-    private static final String SELECT_GAME_BY_NAME = "SELECT g.id, g.name, g.box_small, box_medium FROM game AS g WHERE name LIKE ? ORDER BY name ASC LIMIT 20";
+    //private static final String SELECT_GAME_BY_NAME = "SELECT g.id, g.name, g.box_small, box_medium FROM game AS g WHERE name LIKE ? ORDER BY name ASC LIMIT 20";
+    private static final String SELECT_GAME_BY_NAME = "SELECT g.id, g.name, g.box_small, box_medium, MAX(gs.viewers) AS viewers FROM game AS g JOIN game_stats AS gs ON g.id = gs.id WHERE name LIKE ? GROUP BY g.id ORDER BY viewers DESC LIMIT 20";
 
     @Inject
     public GamesService(JDBCClient client)

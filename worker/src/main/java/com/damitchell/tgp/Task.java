@@ -12,15 +12,13 @@ import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class Task implements Runnable
 {
@@ -35,7 +33,7 @@ public class Task implements Runnable
     protected TwitchGameService service;
 
     protected int limit;
-    protected LocalDateTime date;
+    protected ZonedDateTime date;
 
     protected int totalGames;
     protected int totalViewers;
@@ -63,7 +61,7 @@ public class Task implements Runnable
     public void run()
     {
         includedInRun = new ArrayList<>();
-        date = LocalDateTime.now();
+        date = ZonedDateTime.now(ZoneOffset.UTC);
 
         totalGames = -1;
         totalViewers = 0;

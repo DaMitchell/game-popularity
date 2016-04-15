@@ -5,7 +5,7 @@
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            #121212 !default;
+$text-color:            #333 !default;
 
 //** Global textual link color.
 $link-color:            #2b6acf !default;
@@ -71,3 +71,9 @@ $thumbnail-border-radius:     $border-radius-base !default;
 $thumbnail-caption-color:     $text-color !default;
 //** Padding around the thumbnail caption
 $thumbnail-caption-padding:   9px !default;
+
+//----- Layout specific
+
+$right-column-width: 299px;
+
+$loading-bg: url("../loader.gif") no-repeat center;

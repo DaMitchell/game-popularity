@@ -1,11 +1,15 @@
 <header>
   <span class="brand">Twitch Game Popularity</span>
+    <ul class="nav">
+        <li class="about"><a>About</a></li>
+        <li class="games"><a {{action "toggleRight"}}>Games</a></li>
+    </ul>
 </header>
 
 <div id="main">
   {{outlet "main"}}
 </div>
 
-<div id="right">
+<div id="right" class="{{if isRightOpen "open" "close"}}">
   {{outlet "right"}}
 </div>

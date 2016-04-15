@@ -4,7 +4,6 @@ export default Ember.Component.extend({
     classNames: ['nano'],
 
     willRender() {
-        console.log('willRender');
         if(Ember.$(this.element)) {
             Ember.$(this.element).nanoScroller({destroy: true}).each(() => delete this.nanoscroller);
         }
@@ -23,7 +22,6 @@ export default Ember.Component.extend({
 
     actions: {
         selectGame(game) {
-            console.log('component', game);
             this.sendAction('clickAction', game);
         }
     }

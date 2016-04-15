@@ -25,5 +25,8 @@ module.exports = function(defaults) {
     app.import('bower_components/underscore/underscore.js');
     app.import('bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js');
 
+    app.import('bower_components/moment/min/moment-with-locales.js');
+    app.import('bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');
+
     return app.toTree();
 };

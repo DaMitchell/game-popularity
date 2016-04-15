@@ -1,13 +1,15 @@
 import Ember from 'ember';
 import StoreModel from '../store/model';
 
+import config from '../config/environment';
+
 export default StoreModel.defineModel({
+
     request() {
-        return Ember.$.get('http://localhost:8080/games/' + this.get('id'));
+        return Ember.$.get('http://' + config.apiBaseURL + '/games/' + this.get('id'));
     },
 
     afterSuccess(data) {
-        console.log(data);
         this.setProperties(data);
     },
 

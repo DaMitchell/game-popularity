@@ -3,23 +3,25 @@ package com.damitchell.tgp.model;
 import io.vertx.core.json.JsonObject;
 
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class StatModel
 {
-    private LocalDateTime date;
+    private ZonedDateTime date;
     private int viewers;
     private int channels;
 
     public StatModel(String date, int viewers, int channels)
     {
         // 2016-03-24T19:30:03Z
-        this(LocalDateTime.parse(date, DateTimeFormatter.ISO_OFFSET_DATE_TIME), viewers, channels);
+        this(ZonedDateTime.parse(date, DateTimeFormatter.ISO_OFFSET_DATE_TIME), viewers, channels);
     }
 
-    public StatModel(LocalDateTime date, int viewers, int channels)
+    public StatModel(ZonedDateTime date, int viewers, int channels)
     {
-        this.date = date;
+        //TODO Adding an hour to the date because it looks like vert.x JDBC parses it off.
+        this.date = date.withSecond(0).plusHours(1);
         this.viewers = viewers;
         this.channels = channels;
     }
@@ -33,9 +35,8 @@ public class StatModel
         );
     }
 
-    public LocalDateTime getDate()
+    public ZonedDateTime getDate()
     {
-        //format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm::00"))
         return date;
     }
 
