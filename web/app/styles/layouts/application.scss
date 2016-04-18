@@ -24,6 +24,14 @@ header {
         @include breakpoint(laptop) {
           display: none;
         }
+
+        &.open a {
+          background-color: #eaeaea;
+        }
+
+        &.close a {
+          background: none;
+        }
       }
 
       a {
@@ -34,6 +42,12 @@ header {
         &:hover {
           background-color: #eaeaea;
           text-decoration: none;
+        }
+
+        &:active,
+        &:visited,
+        &:focus {
+          background: none;
         }
       }
     }

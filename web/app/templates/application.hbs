@@ -2,7 +2,7 @@
   <span class="brand">Twitch Game Popularity</span>
     <ul class="nav">
         <li class="about"><a>About</a></li>
-        <li class="games"><a {{action "toggleRight"}}>Games</a></li>
+        <li class="games {{if isRightOpen "open" "close"}}"><a {{action "toggleRight"}}>Games</a></li>
     </ul>
 </header>
 
