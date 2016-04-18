@@ -54,6 +54,15 @@ header {
   }
 }
 
+#loading,
+#error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  text-align: center;
+}
+
 #main {
   @include breakpoint(laptop) {
     margin-right: $right-column-width;

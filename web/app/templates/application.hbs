@@ -1,13 +1,16 @@
 <header>
   <span class="brand">Twitch Game Popularity</span>
     <ul class="nav">
-        <li class="about"><a>About</a></li>
+      <li class="about"><a>About</a></li>
+      {{#unless model.isEmpty}}
+        {{log model.length}}
         <li class="games {{if isRightOpen "open" "close"}}"><a {{action "toggleRight"}}>Games</a></li>
+      {{/unless}}
     </ul>
 </header>
 
 <div id="main">
-  {{outlet "main"}}
+{{outlet "main"}}
 </div>
 
 <div id="right" class="{{if isRightOpen "open" "close"}}">

@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { $, assert, run } = Ember;
+
 export default Ember.Mixin.create({
     didInsertElement: function () {
         this._super(...arguments);
@@ -7,7 +9,7 @@ export default Ember.Mixin.create({
     },
 
     onWindowResizeThrottle: function (event) {
-        Ember.run.throttle(event.data.scope, 'onWindowResize', 100);
+        run.throttle(event.data.scope, 'onWindowResize', 100);
     },
 
     onWindowResize: function () {

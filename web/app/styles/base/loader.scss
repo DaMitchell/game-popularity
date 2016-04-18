@@ -1,0 +1,17 @@
+.loader {
+  height: 50px;
+  width: 50px;
+  margin: 10px auto 0;
+
+  .loader-inner {
+    -webkit-transform: initial;
+    -ms-transform: initial;
+    transform: initial;
+
+    > div {
+      border-color: $text-color;
+      top: 0;
+      left: 0;
+    }
+  }
+}

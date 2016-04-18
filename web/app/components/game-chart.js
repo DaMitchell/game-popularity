@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import WindowResizeMixin from './mixin/window-resize';
 
-const { $, assert, computed } = Ember;
+const { computed } = Ember;
 
 export default Ember.Component.extend(WindowResizeMixin, {
     viewers: false,

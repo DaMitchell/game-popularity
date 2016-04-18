@@ -21,6 +21,7 @@ module.exports = function(defaults) {
     // along with the exports of each module as its value.
 
     app.import('bower_components/normalize-css/normalize.css');
+    app.import('bower_components/loaders.css/loaders.css');
 
     app.import('bower_components/underscore/underscore.js');
     app.import('bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js');

@@ -1,6 +1,13 @@
 <div class="game-list nano-content">
   {{#if loading}}
-      <div class="game-list-loading"></div>
+      <div class="msg">Getting games.</div>
+      <div class="loader">
+          <div class="loader-inner ball-scale-ripple-multiple">
+              <div></div>
+              <div></div>
+              <div></div>
+          </div>
+      </div>
   {{else}}
     {{#each games as |game|}}
         <div class="game" {{action "selectGame" game}}>
