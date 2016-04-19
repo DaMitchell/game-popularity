@@ -2,6 +2,9 @@ package com.damitchell.tgp;
 
 import com.damitchell.tgp.handler.GameHandler;
 import com.damitchell.tgp.handler.GamesHandler;
+import com.damitchell.tgp.handler.game.DayHandler;
+import com.damitchell.tgp.handler.game.MonthHandler;
+import com.damitchell.tgp.handler.game.WeekHandler;
 import com.damitchell.tgp.provider.RoutingProvider;
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
@@ -48,6 +51,9 @@ public class Module extends AbstractModule
         MapBinder<String, Handler<RoutingContext>> handlers = MapBinder.newMapBinder(binder(), new TypeLiteral<String>() {}, new TypeLiteral<Handler<RoutingContext>>(){});
         handlers.addBinding("games").to(GamesHandler.class);
         handlers.addBinding("game").to(GameHandler.class);
+        handlers.addBinding("game.day").to(DayHandler.class);
+        handlers.addBinding("game.week").to(WeekHandler.class);
+        handlers.addBinding("game.month").to(MonthHandler.class);
 
         bind(Router.class).toProvider(RoutingProvider.class);
     }
