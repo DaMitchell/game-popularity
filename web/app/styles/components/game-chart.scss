@@ -6,6 +6,8 @@
     line-height: $line-height;
     position: relative;
 
+    @include clearfix();
+
     .game-name {
       overflow: hidden;
       text-overflow: ellipsis;

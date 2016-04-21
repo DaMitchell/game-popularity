@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import WindowResizeMixin from './mixin/window-resize';
 import GoogleLineChart from 'ember-google-charts/components/line-chart';
 
