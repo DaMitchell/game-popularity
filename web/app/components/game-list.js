@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     didRender() {
         this._super(...arguments);
         if(!this.get('games.isLoading')) {
-            Ember.$(this.element).nanoScroller();
+            Ember.$(this.element).nanoScroller({preventPageScrolling: true});
         }
     },
 

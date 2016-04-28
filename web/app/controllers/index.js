@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import GameModel from '../models/game';
 
-const { inject, computed } = Ember;
+const { inject } = Ember;
 
 export default Ember.Controller.extend({
     games:  inject.controller('games'),

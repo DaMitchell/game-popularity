@@ -7,6 +7,8 @@ import io.vertx.rxjava.ext.jdbc.JDBCClient;
 import rx.Observable;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +18,8 @@ public class GamesService extends AbstractService
     private static final String SELECT_TOTAL_GAMES = "SELECT COUNT(id) AS total FROM game";
     private static final String SELECT_GAMES = "SELECT id, name, box_small, box_medium FROM game LIMIT ? OFFSET ?";
     private static final String SELECT_GAME = "SELECT id, name, box_small, box_medium FROM game WHERE id = ?";
-    private static final String SELECT_TOP_GAMES = "SELECT g.id, g.name, g.box_small, box_medium, MAX(IFNULL(gs.viewers, 0)) AS viewers FROM game AS g LEFT JOIN game_stats AS gs ON g.id = gs.id WHERE (gs.date > ? OR gs.date IS NULL) GROUP BY g.id ORDER BY viewers DESC LIMIT 20";    private static final String SELECT_GAME_BY_NAME = "SELECT g.id, g.name, g.box_small, box_medium, MAX(IFNULL(gs.viewers, 0)) AS viewers FROM game AS g LEFT JOIN game_stats AS gs ON g.id = gs.id WHERE name LIKE ? GROUP BY g.id ORDER BY viewers DESC LIMIT 20";
+    private static final String SELECT_TOP_GAMES = "SELECT g.id, g.name, g.box_small, box_medium, MAX(IFNULL(gs.viewers, 0)) AS viewers FROM game AS g LEFT JOIN game_stats AS gs ON g.id = gs.id WHERE (gs.date > ? OR gs.date IS NULL) GROUP BY g.id ORDER BY viewers DESC LIMIT 20";
+    private static final String SELECT_GAME_BY_NAME = "SELECT g.id, g.name, g.box_small, box_medium, MAX(IFNULL(gs.viewers, 0)) AS viewers FROM game AS g LEFT JOIN game_stats AS gs ON g.id = gs.id WHERE name LIKE ? GROUP BY g.id ORDER BY viewers DESC LIMIT 20";
 
     @Inject
     public GamesService(JDBCClient client)
@@ -33,7 +36,7 @@ public class GamesService extends AbstractService
     public Observable<List<GameModel>> getTopGames()
     {
         //TODO the minus 1 hour is just for local
-        JsonArray params = new JsonArray().add(LocalDateTime.now().minusHours(1).minusMinutes(15)
+        JsonArray params = new JsonArray().add(ZonedDateTime.now(ZoneOffset.UTC).minusHours(1)
             .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         return queryWithParams(SELECT_TOP_GAMES, params)

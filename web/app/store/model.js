@@ -39,13 +39,16 @@ var modelPropertiesFactory = function(properties) {
                 data = properties.deserialize(data);
             }
 
-            if(data.id && this.instances[data.id]) {
-                instance = this.instances[data.id];
-                this.instances[data.id].setProperties(data);
+            Ember.assert('Data must have an id field', data.id);
+
+            var instanceId = this.modelId({id: data.id});
+
+            if(this.instances[instanceId]) {
+                instance = this.instances[instanceId];
+                this.instances[instanceId].setProperties(data);
             } else {
                 instance = this._super(data);
-                Ember.assert('Data must have an id field', data.id);
-                this.instances[data.id] = instance;
+                this.instances[instanceId] = instance;
             }
 
             instance.set('isLoaded', true);

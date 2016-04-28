@@ -1,0 +1,38 @@
+.most-popular {
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    .container {
+      width: 600px;
+      margin: 0 auto;
+
+      @include clearfix();
+
+      .item {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+
+  .container {
+    .item {
+      .content {
+        width: 300px;
+        margin: 10px auto;
+
+        .title,
+        .date {
+          font-weight: 400;
+          text-transform: uppercase;
+        }
+
+        .name {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

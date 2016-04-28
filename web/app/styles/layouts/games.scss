@@ -17,6 +17,11 @@
     }
   }
 
+  .nano {
+    top: 52px;
+    bottom: 33px;
+  }
+
   .game-list-loading {
     position: absolute;
     top: 0;
@@ -52,5 +57,16 @@
       margin-top: 5px;
       text-align: center;
     }
+  }
+
+  .game-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 5px;
+    line-height: 32px;
+    border-top: 1px solid #eaeaea;
+    text-align: right;
   }
 }

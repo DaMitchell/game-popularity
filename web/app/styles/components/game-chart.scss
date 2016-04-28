@@ -16,9 +16,13 @@
     }
 
     .chart-buttons {
-      position: absolute;
-      top: 0;
-      right: 0;
+      float: right;
+      @include breakpoint(tablet){
+        float: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
 
       $button-border-width: 1px;
 

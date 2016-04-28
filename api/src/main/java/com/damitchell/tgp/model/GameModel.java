@@ -24,20 +24,6 @@ public class GameModel
         return this;
     }
 
-    public Representation getRep(Representation rep)
-    {
-        return rep.withProperty("id", id)
-            .withProperty("name", name)
-            .withProperty("box", boxes);
-    }
-
-    public static GameModel fromJsonObject(JsonObject jsonObject)
-    {
-        return new GameModel(jsonObject.getInteger("id"), jsonObject.getString("name"))
-            .addBox("small", jsonObject.getString("box_small"))
-            .addBox("medium", jsonObject.getString("box_medium"));
-    }
-
     public int getId()
     {
         return id;
@@ -51,5 +37,19 @@ public class GameModel
     public String getName()
     {
         return name;
+    }
+
+    public Representation getRep(Representation rep)
+    {
+        return rep.withProperty("id", id)
+            .withProperty("name", name)
+            .withProperty("box", boxes);
+    }
+
+    public static GameModel fromJsonObject(JsonObject jsonObject)
+    {
+        return new GameModel(jsonObject.getInteger("id"), jsonObject.getString("name"))
+            .addBox("small", jsonObject.getString("box_small"))
+            .addBox("medium", jsonObject.getString("box_medium"));
     }
 }

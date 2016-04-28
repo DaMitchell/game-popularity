@@ -53,9 +53,9 @@ public class GamesHandler implements Handler<RoutingContext>
 
             rep.withProperty("total", integer);
 
-            String template = baseUrl + context.request().uri() + "?limit=%s&offset=%s";
+            /*String template = baseUrl + context.request().uri() + "?limit=%s&offset=%s";
 
-            /*rep.withLink("next", String.format(template, limit, (offset + limit)));
+            rep.withLink("next", String.format(template, limit, (offset + limit)));
 
             if(offset > 0) {
                 rep.withLink("prev", String.format(template, limit, ((offset - limit) < 0 ? 0 : (offset - limit))));

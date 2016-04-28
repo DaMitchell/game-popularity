@@ -38,6 +38,13 @@ public class RoutingProvider implements Provider<Router>
         router.get("/games/:id/week").handler(routes.get("game.week"));
         router.get("/games/:id/month").handler(routes.get("game.month"));
 
+        router.get("/total").handler(routes.get("total"));
+        router.get("/total/day").handler(routes.get("total.day"));
+        //router.get("/total/week").handler(routes.get("total.week"));
+        //router.get("/total/month").handler(routes.get("total.month"));
+
+        //router.get("/most").handler(routes.get("most"));
+
         //router.get("/day").handler(routes.get("day"));
         //router.get("/week").handler(routes.get("month"));
         //router.get("/month").handler(routes.get("month"));

@@ -14,11 +14,12 @@
 //components
 @import "components/active-button";
 @import "components/game-chart";
+@import "components/most-popular";
+@import "components/most-recorded";
 @import "components/nano-scroller";
 @import "components/top-nav";
 
 //layouts
 @import "layouts/application";
-@import "layouts/games-list";
-@import "layouts/selected-game";
+@import "layouts/games";
 

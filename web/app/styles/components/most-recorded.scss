@@ -1,0 +1,36 @@
+.most-recorded {
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    .container {
+      width: 720px;
+      margin: 0 auto;
+
+      @include clearfix();
+
+      .item {
+        width: percentage((1 / 3));
+        float: left;
+      }
+    }
+  }
+
+  .container {
+    .item {
+      .content {
+        margin: 10px auto;
+
+        .title,
+        .date {
+          font-weight: 400;
+          text-transform: uppercase;
+        }
+
+        .value {
+          font-size: 2em;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
